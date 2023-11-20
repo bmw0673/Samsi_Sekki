@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<ul>
+	<h3>지난 알림</h3>
+	<li th:each="vo:${list}">
+		<a href="#" class="flex alram_list">
+			<div class="alram_icon">
+				<img src="/images/alram.png">
+			</div>
+			<div class="alram_content">
+				<h4>
+					<span th:text="${vo.division}">알림구분을 넣으세요</span>
+					<span>알림</span>
+				</h4>
+				<p th:text="${vo.content}">알림의 내용을 넣어주세요</p>
+			</div>
+			
+		</a>
+	</li>
+	<li th:if="${#lists.isEmpty(list)}">
+		<div class="list_empty">
+			<img src="/images/bell.png" alt="image">
+			<p class="list_empty_title">스타일 알림</p>
+			<p class="list_empty_content">스타일에 대한 알림은 여기에 표시됩니다.</p>
+		</div>
+		
+	</li>
+</ul>
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<th:block th:fragment="common-head">
+	<meta charset="UTF-8">
+	<title>나의 레이아웃</title>
+	<!--<script src="jquery-3.7.1.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script>
+		$(function(){
+			$(".layer_choice>li>a").click(layerfocus);
+			$("#layer_shopping").click(layershopping);
+			$("#layer_style").click(layerstyle);
+			$(".bubble>span").click(layershoppinggure);
+		})
+		function bubblefocus(el) {
+			$(".bubble>span").removeClass('focus_bubble');
+			$(el).addClass('focus_bubble');
+		}
+		function layershopping(){
+			$(".pop_category").removeClass('hidden');
+			/*$(".list_empty").addClass('hidden');*/
+			$(".pop_list_ul").removeClass('hidden');
+			$.ajax({
+				url:"/alrimShopping",
+				success: function(result){
+					$(".pop_list_ul").html(result);
+				}
+			});
+		}
+		function layershoppinggure(){
+			bubblefocus($(this))
+			var division=$(this).text();
+			//alert(txt)
+			//*
+			
+			if(division=="전체"){
+				$.ajax({
+					url:"/alrimShopping",
+					success: function(result){
+						$(".pop_list_ul").html(result);
+					}
+				});
+			}else {
+				$.ajax({
+				url:`/alrimShoppinggure/${division}`,
+				success: function(result){
+					$(".pop_list_ul").html(result);
+				}
+			});
+			}
+			//*/
+		}	
+		
+		
+		function layerstyle() {
+			$(".pop_category").addClass('hidden');
+			/*$(".list_empty").removeClass('hidden');*/
+			/*$(".pop_list_ul").addClass('hidden');*/
+			<!--/비동기로 데이터갖고오기/////////-->
+			$.ajax({
+				url:"/alrimStyle",
+				success: function(result){
+					$(".pop_list_ul").html(result);
+					/*var length = result.length;
+					if(length > 0){
+						$(".list_empty").addClass('hidden');
+					}*/
+				}
+			});
+		}
+		function layerfocus() {
+			/*alert($(this).text())*/
+			$(".layer_ch").removeClass('focus_layer');
+			$(this).addClass('focus_layer');
+		}
+
+		function openSidebar() {
+			var sidebar = document.getElementById('sidebar');
+			sidebar.style.display = "block"
+			layershopping();
+		}
+		function closeSidebar() {
+			var sidebar = document.getElementById('sidebar')
+			sidebar.style.display = "none";
+		}
+	</script>
+	<link rel="stylesheet" href="/css/common/header.css">
+	<link rel="stylesheet" href="/css/common/footer.css">
+	<link rel="stylesheet" href="/css/common/common.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap"
+		rel="stylesheet">
+</th:block>
+<header>
+	<h1>헤더섹션</h1>
+	<div class="wrap view-size">
+		<section>
+			<h1>1</h1>
+			<ul class="flex end head1">
+				<li><a href="/faq">고객센터</a></li>
+				<li><a href="#">마이페이지</a></li>
+				<li><a href="#">관심상품</a></li>
+				<li><a onclick="openSidebar()" style="cursor: pointer;">알림</a></li>
+				<li>
+					<th:block sec:authorize="isAnonymous()"><a href="/login">로그인</a></th:block>
+					<th:block sec:authorize="isAuthenticated()">
+						<a>
+						<form action="/logout" method="post">
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+						<button class="logout">로그아웃</button>
+						</form>
+						</a>
+					</th:block>
+				</li>
+				<li>
+					<th:block sec:authorize="isAnonymous()"><a href="/signup">회원가입</a></th:block>
+					<th:block sec:authorize="isAuthenticated()">
+						<span sec:authentication="name">이메일</span>
+					</th:block>
+				</li>
+					
+			</ul>
+		</section>
+		<section class="flex between head2">
+			<h1>2</h1>
+			<a href="/">
+				<img src="/images/logo.png">
+			</a>
+			<ul class="flex">
+				<li><a class="bold" href="/">HOME</a></li>
+				<li><a href="#">STYLE</a></li>
+				<li><a href="#">SHOP</a></li>
+				<a href="#">
+					<img src="/images/search.png">
+				</a>
+			</ul>
+		</section>
+	</div>
+	<div class="layer flex" id="sidebar">
+		<div class="layer_close" onclick="closeSidebar()">
+
+		</div>
+		<div class="layer_content">
+			<ul class="flex">
+				<li>
+					<img id="sidebar_icon" src="/images/close.png" onclick="closeSidebar()">
+				</li>
+				<li>
+					<h2>알림</h2>
+				</li>
+			</ul>
+			<div>
+				<nav>
+					<ul class="flex layer_choice">
+						<li><a href="#" class="layer_ch focus_layer" id="layer_shopping"  >쇼핑</a></li>
+						<li><a href="#" class="layer_ch" id="layer_style" >스타일</a></li>
+					</ul>
+				</nav>
+				<div class="pop_category">
+					<label class="bubble">
+						<span class="focus_bubble">전체</span>
+					</label>
+					<label class="bubble">
+						<span>거래</span>
+					</label>
+					<label class="bubble">
+						<span>입찰</span>
+					</label>
+					<label class="bubble">
+						<span>보관판매</span>
+					</label>
+					<label class="bubble">
+						<span>관심/발매</span>
+					</label>
+					<label class="bubble">
+						<span>혜택</span>
+					</label>
+					<label class="bubble">
+						<span>기타</span>
+					</label>
+				</div>
+				<article class="pop_list">
+					<p class="pop_text">알림 설정 및 삭제는 앱에서 가능합니다.</p>
+
+					<div class="pop_list_ul">
+						<!--여기가 알림이 들어가요-->					
+					</div>
+					
+				</article>
+			</div>
+		</div>
+	</div>
+</header>
+
+<footer>
+	<h1>푸터섹션</h1>
+	<div class="wrap view-size foot">
+		<section class="flex between foot1">
+			<div class="flex between foot1-left">
+				<ul>
+					<p>이용안내</p>
+					<li><a class="foot-small" href="#">검수기준</a></li>
+					<li><a class="foot-small" href="#">이용정책</a></li>
+					<li><a class="foot-small" href="#">페널티 정책</a></li>
+					<li><a class="foot-small" href="#">커뮤니티 가이드라인</a></li>
+				</ul>
+				<ul>
+					<p>고객지원</p>
+					<li><a class="foot-small" href="#">공지사항</a></li>
+					<li><a class="foot-small" href="#">서비스 소개</a></li>
+					<li><a class="foot-small" href="#">스토어 안내</a></li>
+					<li><a class="foot-small" href="#">판매자 방문접수</a></li>
+				</ul>
+			</div>
+			<div class="foot1-right">
+				<p class="foot-phone">고객센터 1588-7813</p>
+				<div>
+					<p class="foot-small">운영시간 평일 11:00 ~ 18:00 (토·일, 공휴일 휴무)</p>
+					<p class="foot-small">점심시간 평일 13:00 ~ 14:00</p>
+				</div>
+				<p class="qa">1:1 문의하기는 앱에서만 가능합니다.</p>
+				<button><a href="/faq" class="as">자주 묻는 질문</a></button>
+			</div>
+		</section>
+		<section class="foot2">
+			<ul class="flex foot-pad">
+				<li><a href="#">회사소개</a></li>
+				<li><a href="#">인재채용</a></li>
+				<li><a href="#">제휴제안</a></li>
+				<li><a href="/Agree"><b>이용약관</b></a></li>
+				<li><a href="/Per"><b>개인정보처리방침</b></a></li>
+			</ul>
+			<ul class="flex">
+				<li class="foot-small">크림 주식회사 · 대표 김창욱</li>
+				<li class="foot-small">사업자등록번호 : 570-88-01618 <a href="#"><u>사업자정보확인</u></a></li>
+				<li class="foot-small">통신판매업 : 제 2021-성남분당C-0093호</li>
+			</ul>
+			<ul class="flex foot-pad">
+				<li class="foot-small">사업장소재지 : 경기도 성남시 분당구 분당내곡로 131 판교테크원 타워1, 8층</li>
+				<li class="foot-small">호스팅 서비스 : 네이버 클라우드 ㈜</li>
+			</ul>
+			<div class="foot-pad foot-info">
+				<p><b>신한은행 채무지급보증 안내</b></p>
+				<p class="foot-small">당사는 고객님의 현금 결제 금액에 대해 신한은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다. <a href="#"><u>서비스가입
+							사실 확인</u></a></p>
+			</div>
+			<div class="foot-last flex between">
+				<p class="foot-small">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아닙니다. 본 상품은 개별판매자가 등록한 상품으로 상품, 상품정보, 거래에 관한 의무와 책임은
+					각 판매자에게 있습니다. 단, 이용약관 및 정책, 기타 거래 체결 과정에서 고지하는 내용 등에 따라 검수하고 보증하는 내용에 대한 책임은 크림(주)에 있습니다.</p>
+				<div></div>
+				<p class="foot-small foot-last-pos">© 삼시세끼 Corp.</p>
+			</div>
+			<div class="foot-logo">
+				<a href="#">
+					<img src="/images/social1.png">
+				</a>
+				<a href="#">
+					<img src="/images/social2.png">
+				</a>
+				<a href="#">
+					<img src="/images/social3.png">
+				</a>
+			</div>
+		</section>
+	</div>
+</footer>
+
+</html>

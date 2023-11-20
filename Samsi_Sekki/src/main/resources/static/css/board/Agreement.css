@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+body h1{
+	border-bottom: 2px solid rgb(0, 0, 0);
+	
+}
+
+
+.closebutton{display:flex;}
+
+.closebutton:after {position: absolute; content: "\00d7"; font-size:50pt;  left:50%; transform: -50% 0%;}

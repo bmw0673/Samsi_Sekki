@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/common-layout :: commonLayout(~{this::head},~{this::main})}"> 
+<head>
+	<link rel="stylesheet" href="/css/board/one_board.css">
+	<link rel="stylesheet" href="/css/common/common-faq.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body >
+	<main>
+		<th:block th:replace="~{layout/common-faq::common-faq}" />
+		<h1>1:1문의섹션</h1>
+		<section class="faq-info view-size flex center">
+			<div><img src="/images/faq/questionmark.svg"></div>
+			<div>
+				<p><b>FAQ를 이용하시면 궁금증을 더 빠르게 해결하실 수 있습니다.</b></p>
+				<ul>
+					<li>1:1 문의글 답변 운영시간 10:00 ~ 19:00</li>
+					<li>접수 후 48시간 안에 답변 드리겠습니다.</li>
+				</ul>
+			</div>
+		</section>
+		<h1>경고문구</h1>
+		<section class="view-size warning">
+			<p><b>고객님의 문의에 <span>답변하는 직원은 고객 여러분의 가족 중 한 사람</span>일 수 있습니다.</b></p>
+			<p>고객의 언어폭력(비하, 욕설, 반말, 성희롱 등)으로부터 직원을 보호하기 위해 관련 법에 따라 수사기관에 필요한 조치를 요구할 수 있으며, 형법에 의해 처벌 대상이 될 수 있습니다.</p>
+		</section>
+		<h1>문의내용타이틀</h1>
+		<section class="faq-content view-size flex between">
+			<p><b>문의내용</b></p>
+			<p class="red">* 필수입력</p>
+		</section>
+		<h1>문의내용테이블</h1>
+		<table class="content-table view-size">
+			<colgroup>
+				<col style="width:15%;">
+				<col style="width:auto;">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th scope="row" class="req">분류</th>
+					<td>
+						<select>
+							<option>분류 선택</option>
+							<option>영화관</option>
+							<option>영화</option>
+							<option>멤버십</option>
+							<option>에매/결제</option>
+							<option>이벤트/시사회/무대인사</option>
+							<option>홈페이지/모바일</option>
+							<option>개인정보</option>
+							<option>관람권/할인권</option>
+						</select>
+						<select class="table-margin">
+							<option>문의 종류</option>
+							<option>문의</option>
+							<option>칭찬</option>
+							<option>불만</option>
+							<option>건의</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="req">종류</th>
+					<td>
+						<input type="radio" id="movieAsk" onclick="movieAsk()" checked name="ask">
+						<label for="movieAsk">영화관문의</label>
+						<input class="table-margin" type="radio" id="otherAsk" onclick="otherAsk()" name="ask" >
+						<label for="otherAsk">기타문의</label>
+						<button id="selectMovie" type="submit" class="table-margin" onclick="openSelect()">영화관선택</button>
+						<div id="complete"></div>
+						<div id="ms"><img onclick="closeMs()" src="/images/close.png"></div>
+					</td>
+					<script>
+						function movieAsk(){
+							document.getElementById('selectMovie').style.opacity="1";
+							document.getElementById('selectMovie').style.visibility="visible";
+						}
+						function otherAsk(){
+							document.getElementById('selectMovie').style.opacity="0";
+							document.getElementById('selectMovie').style.visibility="hidden";
+						}
+					</script>
+				</tr>
+				<h1>영화관선택</h1>
+				<section id="MovieSelect" class="movie-select">
+					<div class="select-form">
+						<div class="select-title flex between">
+							<div></div>
+							<p>영화관 선택</p>
+							<div><img src="/images/close.png" onclick="closeSelect()"></div>
+						</div>
+						<div class="flex between select-city">
+							<ul class="space-betweens city-tab">
+								<li class="tabmenu-li tablink tabmenu-color" onclick="openCity(event,'My')">MY 영화관</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Seoul')">서울</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Incheon')">경기/인천</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Daejeon')">충청/대전</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Junla')">전라/광주</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Daegu')">경북/대구</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Busan')">경남/부산/울산</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Gangwon')">강원</li>
+								<li class="tabmenu-li tablink" onclick="openCity(event,'Jeju')">제주</li>
+							</ul>
+							<div id="My" class="city">
+								<p class="small-word">로그인 후 이용해 주세요.</p>
+								<button><a href="/login">로그인</a></button>
+							</div>
+							<ul id="Seoul" class="city" style="display:none">
+								<li>가산디지털</li>
+								<li>가양</li>
+								<li>강동</li>
+								<li>건대입구</li>
+								<li>김포공항</li>
+								<li>노원</li>
+								<li>도곡</li>
+								<li>독산</li>
+								<li>브로드웨이(신사)</li>
+								<li>서울대입구</li>
+								<li>수락산</li>
+								<li>수유</li>
+								<li>신대방</li>
+								<li>신도림</li>
+							</ul>
+							<ul id="Incheon" class="city" style="display:none">
+								<li>광교아울렛</li>
+								<li>광명</li>
+								<li>광명아울렛</li>
+								<li>광주터미널</li>
+								<li>구리아울렛</li>
+								<li>동탄</li>
+								<li>라페스타</li>
+								<li>마석</li>
+								<li>별내</li>
+								<li>병점</li>
+								<li>부천</li>
+								<li>부천역</li>
+								<li>부평</li>
+								<li>부평갈산</li>
+							</ul>
+							<ul id="Daejeon" class="city" style="display:none">
+								<li>당진</li>
+								<li>대전</li>
+								<li>대전관저</li>
+								<li>대전둔산</li>
+								<li>대전센트럴</li>
+								<li>서산</li>
+								<li>서청주</li>
+								<li>아산터미널</li>
+								<li>천안불당</li>
+								<li>천안청당</li>
+								<li>청주용암</li>
+								<li>충주</li>
+							</ul>
+							<ul id="Junla" class="city" style="display:none">
+								<li>광주</li>
+								<li>광주광산</li>
+								<li>군산나운</li>
+								<li>군산몰</li>
+								<li>수완</li>
+								<li>익산모현</li>
+								<li>전주</li>
+								<li>전주송천</li>
+								<li>전주평화</li>
+								<li>충장로</li>
+							</ul>
+							<ul id="Daegu" class="city" style="display:none">
+								<li>경주</li>
+								<li>경주황성</li>
+								<li>구미공단</li>
+								<li>대구광장</li>
+								<li>대구율하</li>
+								<li>대구현풍</li>
+								<li>동성로</li>
+								<li>상인</li>
+								<li>상주</li>
+								<li>성서</li>
+								<li>영주</li>
+								<li>영천</li>
+								<li>포항</li>
+							</ul>
+							<ul id="Busan" class="city" style="display:none">
+								<li>거창</li>
+								<li>광복</li>
+								<li>김해부원</li>
+								<li>김해아울렛</li>
+								<li>대영</li>
+								<li>동래</li>
+								<li>동부아울렛</li>
+								<li>마산</li>
+								<li>부산명지</li>
+								<li>부산본점</li>
+								<li>사천</li>
+								<li>서면</li>
+								<li>센텀시티</li>
+								<li>양산물금</li>
+							</ul>
+							<ul id="Gangwon" class="city" style="display:none">
+								<li>남원주</li>
+								<li>동해</li>
+								<li>원주무실</li>
+								<li>춘천</li>
+							</ul>
+							<ul id="Jeju" class="city" style="display:none">
+								<li>서귀포</li>
+								<li>제주아라</li>
+								<li>제주연동</li>
+							</ul>
+						</div>
+						<script>
+							function openCity(evt, cityName) {
+								var i, x, tablinks;
+								x = document.getElementsByClassName("city");
+								for (i = 0; i < x.length; i++) {
+									x[i].style.display = "none";
+								}
+								tablinks = document.getElementsByClassName("tablink");
+								for (i = 0; i < x.length; i++) {
+									tablinks[i].className = tablinks[i].className.replace(" tabmenu-color", "");
+								}
+								document.getElementById(cityName).style.display = "block";
+								evt.currentTarget.className += " tabmenu-color";
+								}
+							function openSelect(){
+								document.getElementById('MovieSelect').style.opacity="1";
+								document.getElementById('MovieSelect').style.visibility="visible";
+								document.body.style.overflowY="hidden";
+							}
+							function closeSelect(){
+								document.getElementById('MovieSelect').style.opacity="0";
+								document.getElementById('MovieSelect').style.visibility="hidden";
+								document.body.style.overflowY="scroll";
+							}
+							function closeMs(){
+								document.getElementById('ms').style.opacity="0";
+								document.getElementById('ms').style.visibility="hidden";
+								const e = document.getElementById('complete');
+								e.innerHTML = ''
+							}
+							$(".city li").click(function(){
+							    console.log($(this).text());
+							    var a = $(this).text();
+							    const e = document.getElementById('complete');
+							    e.innerHTML = a 
+							    document.getElementById('MovieSelect').style.opacity="0";
+								document.getElementById('MovieSelect').style.visibility="hidden";
+								document.body.style.overflowY="scroll";
+								document.getElementById('ms').style.opacity="1";
+								document.getElementById('ms').style.visibility="visible";
+							});
+						</script>
+					</div>
+				</section>
+				<tr class="content-title">
+					<th scope="row" class="req">제목</th>
+					<td>
+						<input placeholder="제목을 입력해주세요" maxlength="50" id="texts" spellcheck="false">
+					    <div>
+					    	<span id="overs">0/한글 50자</span>
+					    </div>
+					</td>
+					<script>
+						$(document).ready(function() {
+					        $('#texts').on('keyup', function() {
+					          $('#overs').html($(this).val().length + "/한글 50"+ "자");
+					          if ($(this).val().length > 50) {
+					            $(this).val($(this).val().substring(0, 50));
+					            $('#overs').html("50 /한글 50" + "자");
+					          }
+					        });
+				     	});
+					</script>
+				</tr>
+				<tr class="content-inner">
+					<th scope="row" class="req">내용</th>
+					<td>
+						<textarea placeholder="내용 및 첨부파일에 개인정보(카드번호,게좌번호,주민번호)가 포함되지 않도록 유의하여 입력해주세요." maxlength="2000" id="texts2" spellcheck="false"></textarea>
+					    <div class="inner-warning flex between a-center">
+							<div class="flex">
+								<div><img class="warning-img" src="/images/faq/warning.svg"></div>
+								<div>
+									<p class="red small-word">현재 페이지 내 ‘클릭/타이핑’ 없이 머무르는 경우,</p>
+									<p class="red small-word">20분 후 접속이 자동 종료되며 작업한 내용은 저장이 되지 않습니다.</p>
+								</div>
+							</div>
+					    	<span id="overs2" class="small-word gray">0/한글 2000자</span>
+					    </div>
+					</td>
+					<script>
+						$(document).ready(function() {
+					        $('#texts2').on('keyup', function() {
+					          $('#overs2').html($(this).val().length + "/한글 2000"+ "자");
+					          if ($(this).val().length > 2000) {
+					            $(this).val($(this).val().substring(0, 2000));
+					            $('#overs2').html("2000 /한글 2000" + "자");
+					          }
+					        });
+				     	});
+					</script>
+				</tr>
+				<tr>
+					<th scope="row">첨부파일</th>
+					<td class="flex between">
+						<button>파일선택</button>
+						<div class="flex a-center">
+							<img class="warning-img" src="/images/faq/warning.svg">
+							<p class="small-word gray">첨부 파일형식 : jpg / jpeg / png / bmp / gif / pdf (5MB X 1개)</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">답변수신 여부</th>
+					<td class="flex between">
+						<div class="flex a-center">
+							<div class="get-heght"></div>
+							<input type="checkbox" id="getEmail" checked>
+							<label class="table-margin" for="getEmail">이메일 알림받기</label>
+							<input type="checkbox" id="getSMS" class="table-margin">
+							<label class="table-margin" for="getSMS">SMS 알림받기</label>
+						</div>
+						<div class="flex a-center">
+							<img class="warning-img" src="/images/faq/warning.svg">
+							<p class="small-word gray">비회원 문의 시 이메일로 답변 내용이 발송되므로 이메일로 답변 알림 받기는 필수입니다.</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h1>고객정보타이틀</h1>
+		<section class="user-info view-size flex between">
+			<p><b>고객정보</b></p>
+			<p class="red">* 필수입력</p>
+		</section>
+		<h1>고객정보테이블</h1>
+		<table class="content-table view-size">
+			<colgroup>
+				<col style="width:15%;">
+				<col style="width:auto;">
+			</colgroup>
+			<tbody class="information">
+				<tr>
+					<th scope="row" class="req">성명</th>
+					<td class="name">
+						<input type="text" name="name">
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="req">연락처</th>
+					<td class="phone">
+						<select>
+							<option>선택</option>
+							<option>010</option>
+							<option>011</option>
+							<option>016</option>
+							<option>017</option>
+							<option>018</option>
+							<option>019</option>
+						</select>
+						<input type="text">
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="req">이메일</th>
+					<td class="flex between email">
+						<div class="flex a-center">
+							<input type="text">
+							<p>@</p>
+							<input type="text">
+						</div>
+						<div class="flex a-center">
+							<img class="warning-img" src="/images/faq/warning.svg">
+							<p class="small-word gray">답변 등록시 해당 이메일로 자동 발송 됩니다.</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h1>개인정보수집동의</h1>
+		<section class="user-agree view-size flex between">
+			<p><b>개인정보 수집에 대한 동의</b></p>
+			<p class="small-word gray">문의를 통해 아래의 개인정보를 수집합니다. 수집된 개인정보는 문의 외 목적으로 사용하지 않습니다.</p>
+		</section>
+		<h1>개인정보수집</h1>
+		<section class="get-info view-size">
+			<p>개인정보의 수집목적 및 항목</p>
+			<p>① 수집 목적 : 원활한 고객 상담, 불편사항 및 문의사항 관련 의사소통 경로 확보</p>
+			<p>② 수집 항목</p>
+			<p>*필수입력사항</p>
+			<p>- 이용자 식별을 위한 항목 : 성명, 연락처, 이메일, 아이디(로그인 시 수집)</p>
+			<br>
+			<p class="red">개인정보의 보유 및 이용기간</p>
+			<p class="red">입력하신 개인정보는 소비자 보호에 관한 법률 등 관계 법률에 의해 다음과 같이 보유합니다.</p>
+			<p class="red">보유기간 : 문의접수 후 처리 완료시점으로 부터 3년</p>
+			<br>
+			<p class="small-word">※ 1:1문의 서비스 제공을 위한 최소한의 개인정보이며 거부할 수 있습니다. 다만, 수집에 동의하지 않을 경우 서비스 이용이 제한됩니다.</p>
+		</section>
+		<section class="view-size agree-button">
+			<input type="radio" id="agree" checked name="agree">
+			<label for="agree">영화관문의</label>
+			<input class="table-margin" type="radio" id="disagree" name="agree" >
+			<label for="disagree">기타문의</label>
+		</section>
+		<h1>최종버튼</h1>
+		<section class="final flex center view-size">
+			<button class="cancel">취소</button>
+			<span></span>
+			<button class="ok">확인</button>
+		</section>
+	</main>
+</body>
+</html>

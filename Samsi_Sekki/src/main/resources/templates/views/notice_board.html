@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layout/common-layout :: commonLayout(~{this::head},~{this::main})}"> 
+<head>
+	<link rel="stylesheet" href="/css/board/notice_board.css">
+	<link rel="stylesheet" href="/css/common/common-faq.css">
+</head>
+<body>
+<main>
+	<th:block th:replace="~{layout/common-faq::common-faq}" />
+	<h1>공지사항섹션</h1>
+	<section class="button-section">
+		<div class="flex center tabmenu notices">
+	 		<button class="tabmenu-button tablink tabmenu-color" onclick="openNotice(event,'allNotice')"><p>영화관이용</p></button>
+	 		<span></span>
+	  		<button class="tabmenu-button tablink" onclick="openNotice(event,'movieNotice')"><p>영화관 공지</p></button>
+		</div>
+	</section>
+	<div class="view-size notice-aria">
+		<div id="allNotice" class="notice">
+			<div class="search-aria">
+				<select>
+					<option>제목</option>
+					<option>내용</option>
+					<option>제목+내용</option>
+				</select>
+				<input type="text" placeholder="검색어를 입력해주세요.">
+				<button type="button">검색</button>
+			</div>
+			<table class="view-size">
+				<colgroup>
+					<col style="width: 10%;">
+					<col style="width: 15%;">
+					<col style="width: auto;">
+					<col style="width: 15%;">
+				</colgroup>
+				<thead>
+					<tr>
+						<td scope="col">번호</td>
+						<td scope="col">구분</td>
+						<td scope="col">제목</td>
+						<td scope="col">등록일</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>483</td>
+						<td>전체</td>
+						<td><a href="#">11/18(토) 00:00~18:00 하나카드 서비스 점검으로 인한 일시 중단 안내</a></td>
+						<td>2023-11-02</td>
+					</tr>
+					<tr>
+						<td>482</td>
+						<td>가산디지털</td>
+						<td><a href="#">10/25(수) 04시 ~ 09시 한국문화진흥원 컬쳐랜드(문화상품권) 시스템 점검으로 인한 일시 중단 안내</a></td>
+						<td>2023-10-13</td>
+					</tr>
+					<tr>
+						<td>481</td>
+						<td>전체</td>
+						<td><a href="#">10/15(일) 00:00~12:00 롯데카드 서비스 점검으로 인한 일시 중단 안내</a></td>
+						<td>2023-10-11</td>
+					</tr>
+					<tr>
+						<td>480</td>
+						<td>가산디지털</td>
+						<td><a href="#">10/21(토) 02시 ~ 06시 네이버페이 서비스 점검으로 인한 일시 중단 안내</a></td>
+						<td>2023-10-05</td>
+					</tr>
+				</tbody>
+			</table>
+  		</div>
+  		<div id="movieNotice" class="notice">
+  			<div class="search-aria2 between">
+				<script>
+			    var cnt = new Array();
+				    cnt[0] = new Array('영화관명');
+				    cnt[1] = new Array('영화관명','가산디지털', '가양', '강동', '건대입구', '김포공항', '노원','도곡','독산','브로드웨이','서울대입구','수락산','수유','신대방','신도림','신림','에비뉴엘','영등포','용산','월드타워','은평','중랑','청량리','합정','홍대입구');
+					cnt[2] = new Array('영화관명','광교아울렛','광명(광명사거리)','광명아울렛','광주터미널','구리아울렛','동탄','라페스타','마석','별내','병점','부천(신중동역)','부천역','부평','부평갈산','부평역사','북수원(천천동)','산본피트인','서수원','성남중앙(신흥역)');
+					cnt[3] = new Array('영화관명','당진','대전(백화점)','대전관저','대전둔산','대전센트럴','서산','서청주(아울렛)','아산터미널','천안불당','천안청당','청주용암','충주(모다아울렛)');
+					cnt[4] = new Array('영화관명','광주(백화점)','광주광산','군산나운','군산몰','수완(아울렛)','익산모현','전주(백화점)','전주송천','전주평화','충장로');
+					cnt[5] = new Array('영화관명','경주','경주황성','구미공단','대구광장','대구율하','대구현풍','동성로','상인','상주','성서','영주','영천','포항','프리미엄구미센트럴','프리미엄만경','프리미엄안동','프리미엄칠곡');
+					cnt[6] = new Array('영화관명','거창','광복','김해부원','김해아울렛','대영','동래','동부산아울렛','마산','부산명지','부산본점','사천','서면','센텀시티','양산물금','엠비씨네','오투','울산','울산성남','진주혁신','진해','창원','통영','프리미엄경남대','프리미엄해운대');
+					cnt[7] = new Array('영화관명','남원주','동해','원주무실','춘천');
+					cnt[8] = new Array('영화관명','서귀포','제주아라','제주연동');
+				    function change(add) {
+				    sel=document.form.county
+				      /* 옵션메뉴삭제 */
+				      for (i=sel.length-1; i>=0; i--){
+				        sel.options[i] = null
+				        }
+				      /* 옵션박스추가 */
+				      for (i=0; i < cnt[add].length;i++){                     
+				         sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
+				        }         
+				    }
+				</script>
+				<form name=form>
+	                <select name='city' onchange="change(this.selectedIndex);" class=input >
+	                	<option value='지역'>지역</option>
+		                <option value='서울'>서울</option>
+		                <option value='경인'>경기/인천</option>
+		                <option value='충대'>충청/대전</option>
+		                <option value='전광'>전라/광주</option>
+		                <option value='경대'>경북/대구</option>
+		                <option value='경부'>경남/부산/울산</option>
+		                <option value='강원'>강원</option>
+		                <option value='제주'>제주</option>
+	                </select>                                                  
+	                <select name='county'  class=select>
+	                    <option value=''>영화관명</option>
+	            	</select>
+				</form>
+				<select>
+					<option>제목</option>
+					<option>내용</option>
+					<option>제목+내용</option>
+				</select>
+				<input type="text" placeholder="검색어를 입력해주세요.">
+				<button type="button">검색</button>
+			</div>
+			
+			
+			<table class="view-size">
+				<colgroup>
+					<col style="width: 10%;">
+					<col style="width: 15%;">
+					<col style="width: auto;">
+					<col style="width: 15%;">
+				</colgroup>
+				<thead>
+					<tr>
+						<td scope="col">번호</td>
+						<td scope="col">구분</td>
+						<td scope="col">제목</td>
+						<td scope="col">등록일</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>58</td>
+						<td>용산</td>
+						<td><a href="#">■ 롯데시네마 용산관 상영관 리뉴얼 안내 ■</a></td>
+						<td>2023-11-05</td>
+					</tr>
+					<tr>
+						<td>57</td>
+						<td>제주삼화지구</td>
+						<td><a href="#">■ 롯데시네마 제주삼화지구 영업종료안내 ■</a></td>
+						<td>2023-10-25</td>
+					</tr>
+					<tr>
+						<td>56</td>
+						<td>청주용암</td>
+						<td><a href="#">■ 청주용암 수퍼플렉스매니아 당첨자 안내 ■</a></td>
+						<td>2023-09-13</td>
+					</tr>
+					<tr>
+						<td>55</td>
+						<td>김포공항</td>
+						<td><a href="#">■ 김포공항관 순간 정전에 따른 사과 안내■</a></td>
+						<td>2023-08-27</td>
+					</tr>
+				</tbody>
+			</table>
+  		</div>
+	</div>
+	<script>
+		function openNotice(evt, noticeName) {
+		  var i, x, tablinks;
+		  x = document.getElementsByClassName("notice");
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";
+		  }
+		  tablinks = document.getElementsByClassName("tablink");
+		  for (i = 0; i < x.length; i++) {
+		    tablinks[i].className = tablinks[i].className.replace(" tabmenu-color", "");
+		  }
+		  document.getElementById(noticeName).style.display = "block";
+		  evt.currentTarget.className += " tabmenu-color";
+		}
+	</script>
+</main>
+</body>
+</html>

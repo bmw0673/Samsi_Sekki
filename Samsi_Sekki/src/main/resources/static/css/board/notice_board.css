@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.list ul> :nth-child(2){
+	border-bottom: 2px solid black;
+}
+#movieNotice{
+	display: none;
+}
+.button-section{
+	width:1200px;
+	margin:-30px auto 20px;
+}
+.notices{
+	width:240px;
+	margin: 0 0 0 240px;
+}
+.notices span{
+	width:20px;
+}
+.notices button{
+	background-color: white;
+}
+.tabmenu-color{
+	font-weight: bold;
+}
+.notice-aria{
+	margin-bottom: 60px;
+}
+.search-aria, .search-aria2{
+	padding: 20px;
+	background-color: #F8F8F8;
+	border: 1px solid #ccc;
+	height:86px;
+	border-radius: 5px;
+	display: flex;
+}
+.search-aria select, .search-aria input,
+.search-aria2 select, .search-aria2 input{
+	margin-right: 10px;
+	outline: 1px solid #ccc;
+	border-radius: 5px;
+}
+.search-aria select{
+	width:115px;
+	padding:0 35px 0 18px;
+}
+.search-aria input, .search-aria2 input{
+	width:580px;
+	padding:0 18px;
+}
+.search-aria button,.search-aria2 button{
+	width:86px;
+	background-color: #A5D4B0;
+	color:white;
+	font-weight: bold;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+table{
+	border-bottom: 1.5px solid #ccc;
+	border-collapse : collapse;
+}
+table tr{
+	border-bottom: 1.5px solid #ccc;
+}
+table thead td{
+	text-align: center;
+	font-weight: bold;
+}
+table td{
+	padding: 18px;
+	word-break: keep-all;
+}
+table tbody td:not(:nth-child(3)){
+	text-align: center;
+}
+.search-aria2 select{
+	height:100%;
+}
+.search-aria2 select{
+	padding:0 35px 0 18px;
+}
+.search-aria2 input{
+	width:500px;
+	padding:0 18px;
+}
+.search-aria2 .select{
+	width:195px;
+}

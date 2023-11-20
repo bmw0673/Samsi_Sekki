@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmln:th="http://www.thymeleaf.org" th:fragment="commonLayout(head, main)">
+	<head>
+		<th:block th:replace="~{layout/common::common-head}">공통헤더영역</th:block>
+		<th:block th:replace="${head}">페이지마다 적용될 css,js resource</th:block>
+	</head>
+	<body>
+		<th:block th:replace="~{layout/common::header}">header섹션 적용</th:block>
+		<th:block th:replace="${main}">main섹션 적용</th:block>
+		<th:block th:replace="~{layout/common::footer}">footer섹션 적용</th:block>
+	</body>
+</html>

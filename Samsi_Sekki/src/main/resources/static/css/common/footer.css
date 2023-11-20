@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+footer .foot{
+	border-top: 1px solid #999;
+	padding: 50px 40px;
+}
+.foot1{
+	padding-bottom: 50px;
+	border-bottom: 1px solid #999;
+}
+.foot1-left ul{
+	padding-right: 60px;
+}
+.foot1-left ul li{
+	padding-top: 15px;
+}
+.foot1-left ul p{
+	font-weight: bold;
+}
+.foot-small{
+	color: darkgray;
+	font-size: 0.8rem;
+}
+.foot-phone{
+	font-weight: bold;
+}
+.foot1-right div{
+	padding: 10px 0;
+}
+.foot1-right .qa{
+	font-size: 0.8rem;
+	padding-bottom: 10px;
+}
+.foot1-right button{
+	width:100px;
+	height:40px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+.foot2{
+	padding-top: 50px;
+	position: relative;
+}
+.foot-pad{
+	padding-bottom: 20px;
+}
+.foot2 .flex li{
+	padding-right: 20px;
+	
+}
+
+.foot-info p{
+	font-size: 0.8rem;
+}
+.foot-last{
+	position: relative;
+}
+.foot-last div {
+	width:45%;
+}
+.foot-last p{
+	width:55%;
+}
+.foot-last-pos{
+	position: absolute;
+	bottom: 0;
+	right:0;
+	text-align: right;
+}
+.foot2 .foot-logo{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 50px;
+}
+.foot2 .foot-logo a{
+	margin-left: 20px;
+}
+.foot2 .foot-logo img{
+	width:auto;
+}
+.as{
+	display: block;
+	width:100%;
+	height:100%;
+	color:white;
+	padding-top: 8px;
+}

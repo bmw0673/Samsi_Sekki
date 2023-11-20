@@ -1,0 +1,275 @@
+@charset "UTF-8";
+.list ul> :nth-child(3){
+	border-bottom: 2px solid black;
+}
+main{
+	margin-bottom: 60px;
+}
+.faq-info{
+	background-color: #F8F8F8;
+	height:147px;
+	padding:35px 0;
+}
+.faq-info img{
+	width:40px;
+	height:40px;
+	margin-right: 10px;
+}
+.faq-info p{
+	margin-bottom: 15px;
+}
+.faq-info ul li{
+	font-size: 0.9rem;
+	margin-bottom: 10px;
+}
+.warning{
+	padding: 20px 0 40px 0;
+	line-height: 25px;
+}
+.warning span{
+	color:red;
+}
+.warning > :nth-child(2){
+	font-size: 0.8rem;
+	color:gray;
+}
+.red{
+	color:red;
+}
+.faq-content, .user-info{
+	border-bottom: 1.5px solid gray;
+	align-items: center;
+	padding-bottom: 20px;
+}
+.faq-content >:nth-child(1), .user-info>:nth-child(1){
+	font-size: 1.5rem;
+}
+table{
+	border-bottom: 1.5px solid #ccc;
+	border-collapse : collapse;
+}
+table tr{
+	border-bottom: 1.5px solid #ccc;
+}
+table tr th, table tr td{
+	padding:7px 4px;
+	text-align: start;
+}
+.req::after{
+	content: '*';
+	margin-left: 10px;
+	color:red;
+}
+.content-table{
+	margin-bottom: 40px;
+}
+.content-table select{
+	height:40px;
+	padding:0 35px 0 18px;
+	outline: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 0.95rem;
+}
+.table-margin{
+	margin-left: 10px;
+}
+.content-table button{
+	height:40px;
+	width:145px;
+	padding: 0 18px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 0.9rem;
+}
+#texts{
+	width:100%;
+	height:40px;
+	padding: 0 18px;
+	font-size: 0.9rem;
+	background-color: #F8F8F8;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+#overs{
+	font-size: 0.8rem;
+}
+.content-title div{
+	text-align: end;
+	margin-top: 5px;
+}
+#texts2{
+	width:100%;
+	height:238px;
+	padding: 13px 18px;
+	font-size: 0.9rem;
+	background-color: #F8F8F8;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: auto;
+	resize: none;
+}
+.warning-img{
+	width:15px;
+	height:15px;
+	margin-right: 5px;
+}
+.small-word{
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+.gray{
+	color:gray;
+}
+.a-center{
+	align-items: center;
+}
+.get-heght{
+	height:40px;
+}
+.information input {
+	background-color: #F8F8F8;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	height:40px;
+	padding:0 18px;
+}
+.information select{
+	background-color: #F8F8F8;
+	border-radius: 5px;
+	height:40px;
+	padding:0 18px;
+}
+.name input{
+	width:170px;
+}
+.phone input{
+	width:86px;
+	margin-left: 5px;
+}
+.email .a-center p{
+	margin:0 3px;
+}
+.user-agree >:nth-child(1){
+	font-size: 1.5rem;
+}
+.get-info{
+	margin:20px auto 20px;
+	padding:21px 32px;
+	overflow-y: scroll;
+	height:150px;
+	line-height: 1.6;
+	border: 1px solid #ddd;
+	background-color: #fff;
+}
+.agree-button{
+	text-align: end;
+}
+.final button{
+	width:160px;
+	height:45px;
+	padding:0 18px;
+	font-weight: bold;
+	font-size: 0.9rem;
+	border-radius: 5px;
+	background-color: white;
+	border: 1px solid #A5D4B0;
+}
+.final span{
+	width:5px;
+}
+.final .ok{
+	background-color: #A5D4B0;
+	color:white;
+}
+body{
+	position: relative;
+}
+.movie-select{
+	position: fixed;
+	width:100%;
+	height:100vh;
+	top:0;
+	left:0;
+	background: rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	visibility: hidden;
+}
+.select-form{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	width:360px;
+	height:370px;
+	background-color: white;
+}
+.select-title{
+	border-bottom: 1px solid gray;
+	padding: 20px 10px;
+	align-items: center;
+}
+.select-title>:nth-child(1){
+	width:24px;
+}
+.select-title p{
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+.select-title img{
+	cursor: pointer;
+}
+.select-city{
+	height:301px;
+	align-items: center;
+}
+.select-city .city-tab, .select-city .city{
+	width:50%;
+	height:100%;
+}
+.tablink, .city li{
+	height:10.9%;
+	padding: 5px 16px;
+	cursor: pointer;
+	border-top: 1px solid #EBEBEB;
+}
+.tabmenu-color, .city{
+	background-color: #F5F5F5;
+}
+.city{
+	overflow-y: scroll;
+}
+#My{
+	padding: 33% 0;
+	text-align: center;
+}
+#My button{
+	width:90%;
+	height:25px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 30px;
+	margin-top: 10px;
+	font-size: 1rem;
+}
+#My button a{
+	width:100%;
+	height:100%;
+	display: block;
+}
+#complete{
+	display: inline;
+	margin-left: 20px;
+}
+#ms{
+	display: inline;
+}
+#ms{
+	visibility: hidden;
+	opacity: 0;
+}
+#ms img{
+	width:15px;
+	height:15px;
+	cursor: pointer;
+}

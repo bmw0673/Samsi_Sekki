@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmln:th="http://www.thymeleaf.org" 
+th:replace="~{layout/common-layout :: commonLayout(~{this::head}, ~{this::main})}">
+	<head>
+		<link rel="stylesheet" href="/css/common/home-common.css">
+		<link rel="stylesheet" href="/css/index.css">
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	</head>
+	<main>
+		<h1>메인섹션</h1>
+		<section class="main-slide">
+			<h1>메인슬라이드</h1>
+			<th:block th:replace="~{layout/home-common::home-common}">메인 카테고리</th:block>
+			<body>
+			<!-- Swiper -->
+			<div class="swiper mySwiper">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide"><img src="/images/index/slide/img1.JPG"></div>
+			    <div class="swiper-slide"><img src="/images/index/slide/img2.JPG"></div>
+			    <div class="swiper-slide"><img src="/images/index/slide/img3.JPG"></div>
+			    <div class="swiper-slide"><img src="/images/index/slide/img4.JPG"></div>
+			  </div>
+			  <div class="swiper-button-next"></div>
+			  <div class="swiper-button-prev"></div>
+			  <div class="swiper-pagination"></div>
+			</div>
+			<script>
+			  var swiper = new Swiper(".mySwiper", {
+			    slidesPerView: 1,
+			    spaceBetween: 30,
+			    loop: true,
+			    pagination: {
+			      el: ".swiper-pagination",
+			      clickable: true,
+			    },
+			    navigation: {
+			      nextEl: ".swiper-button-next",
+			      prevEl: ".swiper-button-prev",
+			    },
+			  });
+			</script>
+		</section>
+		<section class="main-icon view-size">
+			<h1>메인아이콘</h1>
+			<div class="icon-area flex between">
+				<div>
+					<div><img src="/images/index/icon/img1.JPG"></div>
+					<p>크림 드로우</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img2.JPG"></div>
+					<p>실시간 차트</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img3.JPG"></div>
+					<p>남성 추천</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img4.JPG"></div>
+					<p>여성 추천</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img5.JPG"></div>
+					<p>10% 적립 브랜드</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img6.JPG"></div>
+					<p>정가 아래</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img7.JPG"></div>
+					<p>아우터 10% 적립</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img8.JPG"></div>
+					<p>어그 최대 -67%</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img9.JPG"></div>
+					<p>11월 혜택모음</p>
+				</div>
+				<div>
+					<div><img src="/images/index/icon/img10.JPG"></div>
+					<p>최대 6천 포인트!</p>
+				</div>
+			</div>
+		</section>
+		<section class="just-drop view-size">
+			<h1>추천상품</h1>
+			<div class="drop-title">
+				<p><b>Just Dropped</b></p>
+				<div class="flex between">
+					<p>발매상품</p>
+					<a href="#">더보기</a>
+				</div>
+			</div>
+			<div class="drop-pro flex between">
+				<div>
+					<div><img src=""></div>
+					<p class="small"><b>상품1</b></p>
+					<p class="small">상품설명</p>
+					<p class="drop-price"><b>499,000원</b></p>
+					<p class="small gray">즉시 구매가</p>
+				</div>
+				<div>
+					<div><img src=""></div>
+					<p class="small"><b>상품2</b></p>
+					<p class="small">상품설명</p>
+					<p class="drop-price"><b>219,000원</b></p>
+					<p class="small gray">즉시 구매가</p>
+				</div>
+				<div>
+					<div><img src=""></div>
+					<p class="small"><b>상품3</b></p>
+					<p class="small">상품설명</p>
+					<p class="drop-price"><b>220,000원</b></p>
+					<p class="small gray">구매가</p>
+				</div>
+				<div>
+					<div><img src=""></div>
+					<p class="small"><b>상품4</b></p>
+					<p class="small">상품설명</p>
+					<p class="drop-price"><b>119,000원</b></p>
+					<p class="small gray">즉시 구매가</p>
+				</div>
+				<div>
+					<div><img src=""></div>
+					<p class="small"><b>상품5</b></p>
+					<p class="small">상품설명</p>
+					<p class="drop-price"><b>99,000원</b></p>
+					<p class="small gray">구매가</p>
+				</div>
+			</div>
+			<div class="more-button">
+				<button>더보기</button>
+			</div>
+		</section>
+		<section class="inroduce-img">
+			<h1>소개사진</h1>
+			<a href="#"><img src=""></a>
+		</section>
+		<section class="sns view-size">
+			<h1>sns</h1>
+			<p><b>지금 가장 핫한 #트랜드</b></p>
+			<div class="swiper mySwiper2">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			      <div class="swiper-slide"></div>
+			    </div>
+			    <div class="swiper-button-next a"></div>
+			    <div class="swiper-button-prev b"></div>
+			</div>
+			<script>
+			  var swiper = new Swiper(".mySwiper2", {
+			    slidesPerView: 6,
+			    spaceBetween: 30,
+			    loop: true,
+			    navigation: {
+			      nextEl: ".swiper-button-next",
+			      prevEl: ".swiper-button-prev",
+			    },
+		   	 });
+			  </script>
+		</section>
+	</main>
+</html>

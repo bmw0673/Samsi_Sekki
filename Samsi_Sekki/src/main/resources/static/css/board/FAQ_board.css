@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+.list ul> :nth-child(1){
+	border-bottom: 2px solid black;
+}
+
+
+.bolds {
+  font-weight: 600;
+}
+
+.accordion {
+  background: #fff;
+  cursor: pointer;
+  padding: 16px 0 16px;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: left;
+  transition: 0.4s;
+  font-size: 0.9rem;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+
+
+.misolmi {
+  padding: 10px 20px;
+  background: #ff0033;
+  border-radius: 20px;
+  margin-right: 20px;
+  color: white;
+}
+
+.misolmis {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.misolmiss {
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-right: 20px;
+  color: white;
+}
+
+/*faq*/
+.tabmenu{
+	height:113px;
+	padding: 10px 20px;
+	background-color: #F5F5F5;
+}
+.tabmenu-button {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  background-color: #F5F5F5;
+  padding: 20px 10px;
+  margin-left: 7px;
+  font-weight: bold;
+}
+.tabmenu-button img{
+	width:30px;
+	height:30px;
+	margin-bottom: 5px;
+}
+.tabmenu> :nth-child(1){
+	margin-left: 0;
+}
+
+.tabmenu-color {
+  background:white;
+  outline: 5px solid #FF9999;
+}
+
+
+.cate .accordion p {
+  font-weight: bold;
+}
+
+.panel{
+	background-color: #F8F8F8;
+}
+.panel >div{
+	padding:20px 0;
+}
+
+
+.search {
+	margin:40px 0 10px 0;
+	background-color: #F5F5F5;
+	border-radius: 12px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	align-items: center;
+}
+.search-box{
+	align-items: center;
+}
+.search .search-box input{
+	outline: 1px solid #CCC;
+	padding: 5px 10px;
+	border-radius: 5px;
+	height:40px;
+	width:550px;
+	margin-right: 10px;
+}
+.search-box button{
+	width:100px;
+	height:40px;
+	border-radius: 5px;
+	font-size: 1rem;
+	background-color: #A5D4B0;
+	color:white;
+	font-weight: bold;
+}
+.search .more-search{
+	font-size: 0.8rem;
+}
+.search .more-search >:nth-child(1){
+	margin-bottom: 5px;
+}
+.search span{
+	width:1px;
+	height:40px;
+	background-color: #ccc;
+}
+.faq-title{
+	border-bottom: 1px solid #ccc;
+	padding:10px 0 20px 0;
+}
+.faq-title p{
+	text-align: center;
+	font-weight: bold;
+	text-align: center;
+}
+.faq-title>:nth-child(1){
+	width:25%;
+}
+.faq-title>:nth-child(2){
+	width:75%;
+}
+.cate img{
+	width:25px;
+	height:25px;
+}
+.second_misolmi{
+	width:300px;
+}
+.blank{
+	width:300px;
+}
+.p-answer{
+	font-size: 0.9rem;
+	width:800px;
+}
+.p-margin{
+	margin-bottom: 20px;
+}
+.p-red{
+	color:red;
+}
+main{
+	margin-bottom: 60px;
+}
+.p-answer p{
+	word-break: keep-all;
+}
+.blank .flex{
+	width:789.91px;
+}
